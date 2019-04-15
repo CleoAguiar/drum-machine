@@ -12,7 +12,7 @@ class App extends React.Component
 
 	render()
 	{
-		return [e(Header), e(Footer)];
+		return [e(Header), e(DrumMachine), e(Footer)];
 	}
 }
 
@@ -21,6 +21,14 @@ const Header = () => {
 			[e('h2',null, 'Welcome to my React Drum Machine!'),
 			e('p', null, 'This page is my Third Front End Project FreeCodeCamp using React')]
 			);
+};
+
+const DrumMachine = () => {
+	return e('div', { id: 'drum-machine' }, e(Display));
+};
+
+const Display = () => {
+	return e('div', { id: 'display'})
 };
 
 const Footer = () => {
