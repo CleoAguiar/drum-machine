@@ -33,7 +33,7 @@ const Display = () => {
 
 const PadElements = () => {
 	return e('div', { id: 'pad-blank' },
-		[e('div', { id: 'Header-1', class: 'drum-pad'}, e(Clip)),
+		[e('div', { id: 'Header-1', class: 'drum-pad'}, [Audio('Q'), 'Q']),
 		 e('div', { id: 'Header-2', class: 'drum-pad'}),
 		 e('div', { id: 'Header-3', class: 'drum-pad'}),
 		 e('div', { id: 'Header-4', class: 'drum-pad'}),
@@ -44,8 +44,8 @@ const PadElements = () => {
 		 e('div', { id: 'Header-9', class: 'drum-pad'}), ]);
 };
 
-function Clip (clipId) {
-	return e('div', { class: 'clip'}, 'clipId');
+function Audio (clipId) {
+	return e('audio', { class: 'clip', id: clipId});
 };
 
 const Footer = () => {
