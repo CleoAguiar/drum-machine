@@ -34,14 +34,14 @@ const Display = () => {
 const PadElements = () => {
 	return e('div', { id: 'pad-blank' },
 		[e('div', { id: 'Header-1', class: 'drum-pad'}, [Audio('Q'), 'Q']),
-		 e('div', { id: 'Header-2', class: 'drum-pad'}),
-		 e('div', { id: 'Header-3', class: 'drum-pad'}),
-		 e('div', { id: 'Header-4', class: 'drum-pad'}),
-		 e('div', { id: 'Header-5', class: 'drum-pad'}),
-		 e('div', { id: 'Header-6', class: 'drum-pad'}),
-		 e('div', { id: 'Header-7', class: 'drum-pad'}),
-		 e('div', { id: 'Header-8', class: 'drum-pad'}),
-		 e('div', { id: 'Header-9', class: 'drum-pad'}), ]);
+		 e('div', { id: 'Header-2', class: 'drum-pad'}, [Audio('W'), 'W']),
+		 e('div', { id: 'Header-3', class: 'drum-pad'}, [Audio('E'), 'E']),
+		 e('div', { id: 'Header-4', class: 'drum-pad'}, [Audio('A'), 'A']),
+		 e('div', { id: 'Header-5', class: 'drum-pad'}, [Audio('S'), 'S']),
+		 e('div', { id: 'Header-6', class: 'drum-pad'}, [Audio('D'), 'D']),
+		 e('div', { id: 'Header-7', class: 'drum-pad'}, [Audio('Z'), 'Z']),
+		 e('div', { id: 'Header-8', class: 'drum-pad'}, [Audio('X'), 'X']),
+		 e('div', { id: 'Header-9', class: 'drum-pad'}, [Audio('C'), 'C']), ]);
 };
 
 function Audio (clipId) {
