@@ -24,11 +24,7 @@ const Header = () => {
 };
 
 const DrumMachine = () => {
-	return e('div', { id: 'drum-machine' }, e(Display));
-};
-
-const Display = () => {
-	return e('div', { id: 'display'}, e(PadElements));
+	return e('div', { id: 'drum-machine' }, [e(PadElements), e(Controls)]);
 };
 
 const PadElements = () => {
@@ -47,6 +43,12 @@ const PadElements = () => {
 function Audio (clipId, nameFile) {
 	return e('audio', { class: 'clip', id: clipId, src: `https://s3.amazonaws.com/freecodecamp/drums/${nameFile}.mp3` });
 };
+
+
+const Controls = () => {
+	return e('div', { id: 'controls-container'});
+};
+
 
 const Footer = () => {
 	return e('div', { id: 'footer' }, 
