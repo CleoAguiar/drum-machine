@@ -46,9 +46,12 @@ function Audio (clipId, nameFile) {
 
 
 const Controls = () => {
-	return e('div', { id: 'controls-container'});
+	return e('div', { id: 'controls-container'}, Display('need improve'));
 };
 
+function Display (name) {
+	return e('p', { id: 'display' }, name);
+};
 
 const Footer = () => {
 	return e('div', { id: 'footer' }, 
