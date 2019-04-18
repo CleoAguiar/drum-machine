@@ -10,7 +10,7 @@ const activeStyle = {
 };
 
 const inactiveStyle = {
-    backgroundColor: 'grey',
+    backgroundColor: '#2c3e50',
     marginTop: 10,
     boxShadow: "3px 3px 5px black"
 }
@@ -22,8 +22,27 @@ class App extends React.Component
     {
         super(props);
         this.state = {
-            PadStyle: inactiveStyle
+            padStyle: inactiveStyle
         };
+
+        this.activatePad = this.activatePad.bind(this);
+    }
+
+    activatePad(){
+        if (this.props.power){
+            this.state.padStyle.backgroundColor === 'orange' ?
+                this.setState({ padStyle: inactiveStyle }) :
+                this.setState({ padStyle: activeStyle });
+        }
+        else {
+            this.state.padStyle.marginTop === 13 ?
+                this.setState({ padStyle: inactiveStyle }) :
+                this.setState({ padStyle: { 
+                                    height: 77,
+                                    marginTop: 13,
+                                    backgroundColor: '#2c3e50',
+                                    boxShadow: '0 3px #2c3e50' } });
+        }
     }
 
     render()
