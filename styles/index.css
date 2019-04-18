@@ -1,5 +1,29 @@
+/*$padWidth: 100px;
+$padHeight: 80px;*/
+
 body {
 	margin: 20px 20px 40px;
-  	background: #2c3e50;
+  	background: #5b80a4;
   	color: #fff;
+}
+
+#pad-blank {
+	width: 332px;
+	height: 272px;
+	display: inline-block;
+	margin: 20px;
+}
+
+.drum-pad {
+	position: relative;
+	float: left;
+	width: 100px;
+	height: 80px;
+	margin-right: 10px;
+	border-radius: 5px;
+	padding-top: 35px;
+	box-sizing: border-box;
+	cursor: pointer;
+	background: #2c3e50;
+	text-align: center;
 }
