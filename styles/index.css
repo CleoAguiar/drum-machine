@@ -3,8 +3,12 @@ $padHeight: 80px;*/
 
 body {
 	margin: 20px 20px 40px;
-  	background: #5b80a4;
+  	background: #808080;
   	color: #fff;
+}
+
+#header h2, p {
+	text-align: center;
 }
 
 #pad-blank {
@@ -25,6 +29,6 @@ body {
 	padding-top: 35px;
 	box-sizing: border-box;
 	cursor: pointer;
-	background: #2c3e50;
+	background: #404040;
 	text-align: center;
 }
