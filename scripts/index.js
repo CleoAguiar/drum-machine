@@ -2,6 +2,55 @@
 
 const e = React.createElement;
 
+const bankOne = [{
+    keyCode: 81,
+    keyTrigger: 'Q',
+    id: 'Heater-1',
+    url: 'https://Heater-1.mp3'
+  }, {
+    keyCode: 87,
+    keyTrigger: 'W',
+    id: 'Heater-2',
+    url: 'https://Heater-2.mp3'
+  }, {
+    keyCode: 69,
+    keyTrigger: 'E',
+    id: 'Heater-3',
+    url: 'https://Heater-3.mp3'
+  }, {
+    keyCode: 65,
+    keyTrigger: 'A',
+    id: 'Heater-4',
+    url: 'https://Heater-4_1.mp3'
+  }, {
+    keyCode: 83,
+    keyTrigger: 'S',
+    id: 'Clap',
+    url: 'https://Heater-6.mp3'
+  }, {
+    keyCode: 68,
+    keyTrigger: 'D',
+    id: 'Open-HH',
+    url: 'https://Dsc_Oh.mp3'
+  }, {
+    keyCode: 90,
+    keyTrigger: 'Z',
+    id: "Kick-n'-Hat",
+    url: 'https://Kick_n_Hat.mp3'
+  }, {
+    keyCode: 88,
+    keyTrigger: 'X',
+    id: 'Kick',
+    url: 'https://RP4_KICK_1.mp3'
+  }, {
+    keyCode: 67,
+    keyTrigger: 'C',
+    id: 'Closed-HH',
+    url: 'https://Cev_H2.mp3'
+  },
+];
+
+
 const activeStyle = {
     backgroundColor: 'orange',
     boxShadow: "0 3px orange",
@@ -22,6 +71,7 @@ class App extends React.Component
     {
         super(props);
         this.state = {
+            currentPadBank: bankOne;
             padStyle: inactiveStyle
         };
 
@@ -76,7 +126,7 @@ const PadElements = () => {
 };
 
 function Audio (clipId, nameFile) {
-    return e('audio', { class: 'clip', id: clipId, src: `https://s3.amazonaws.com/freecodecamp/drums/${nameFile}.mp3` });
+    return e('audio', { class: 'clip', id: clipId, src: `https://${nameFile}.mp3` });
 };
 
 
