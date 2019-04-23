@@ -5,6 +5,7 @@ body {
 	margin: 20px 20px 40px;
   	background: #808080;
   	color: #fff;
+  	font-size: 1.1em;
 }
 
 #header h2, p {
@@ -16,6 +17,10 @@ body {
 	height: 272px;
 	display: inline-block;
 	margin: 20px;
+}
+
+#drum-machine {
+	text-align: center;
 }
 
 .drum-pad {
@@ -31,4 +36,11 @@ body {
 	cursor: pointer;
 	background: #404040;
 	text-align: center;
+}
+
+#footer {
+	position: fixed;
+	right: 0;
+	bottom: 1em;
+	left: 0;
 }
