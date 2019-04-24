@@ -71,7 +71,7 @@ class App extends React.Component
     {
         super(props);
         this.state = {
-            currentPadBank: bankOne;
+            currentPadBank: bankOne,
             padStyle: inactiveStyle
         };
 
