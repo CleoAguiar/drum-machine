@@ -102,6 +102,30 @@ class DrumPad extends React.Component
     }
 }
 
+
+class PadBlank extends React.Component
+{
+    constructor(props)
+    {
+        super(props);
+    }
+
+    render()
+    {
+        let padBank;
+        this.props.power ?
+            padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
+                return e('div', {id: 'improve1'});
+            }) :
+            padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
+                return e('div', {id: 'improve2'});
+            })
+
+        return e('div', { id:'pad-blank' }, padBank);
+    }
+}
+
+
 class App extends React.Component
 {
     constructor (props)
