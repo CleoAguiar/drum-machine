@@ -62,23 +62,23 @@ const inactiveStyle = {
     backgroundColor: '#2c3e50',
     marginTop: 10,
     boxShadow: "3px 3px 5px black"
-}
+};
 
 
-class App extends React.Component
+class DrumPad extends React.Component
 {
-    constructor (props)
+    constructor(props)
     {
         super(props);
         this.state = {
-            currentPadBank: bankOne,
             padStyle: inactiveStyle
         };
 
         this.activatePad = this.activatePad.bind(this);
     }
 
-    activatePad(){
+    activatePad()
+    {
         if (this.props.power){
             this.state.padStyle.backgroundColor === 'orange' ?
                 this.setState({ padStyle: inactiveStyle }) :
@@ -93,6 +93,24 @@ class App extends React.Component
                                     backgroundColor: '#2c3e50',
                                     boxShadow: '0 3px #2c3e50' } });
         }
+    }
+
+    render() {
+        return [e('div', { id: this.props.clipId, onClick: 'improve', className: 'drum-pad', style: this.state.padStyle }, 
+                    [e('audio', { class: 'clip', id: this.props.keyTrigger , src: this.props.clip } ), this.props.keyTrigger]
+                )];
+    }
+}
+
+class App extends React.Component
+{
+    constructor (props)
+    {
+        super(props);
+        this.state = {
+            currentPadBank: bankOne
+        };
+        
     }
 
     render()
