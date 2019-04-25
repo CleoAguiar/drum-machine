@@ -115,10 +115,10 @@ class PadBlank extends React.Component
         let padBank;
         this.props.power ?
             padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
-                return e('div', {id: 'improve1'});
+                return e(DrumPad, {clipId: padBank[i].id, clip: padBank[i].url, keyTrigger: padBank[i].keyTrigger, keyCode: padBank[i].keyCode });
             }) :
             padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
-                return e('div', {id: 'improve2'});
+                return e(DrumPad, {clipId: padBank[i].id, clip: '#', keyTrigger: padBank[i].keyTrigger, keyCode: padBank[i].keyCode });
             })
 
         return e('div', { id:'pad-blank' }, padBank);
