@@ -59,7 +59,7 @@ const activeStyle = {
 };
 
 const inactiveStyle = {
-    backgroundColor: '#2c3e50',
+    backgroundColor: '#404040',
     marginTop: 10,
     boxShadow: "3px 3px 5px black"
 };
