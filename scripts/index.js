@@ -115,13 +115,13 @@ class PadBlank extends React.Component
         let padBank;
         this.props.power ?
             padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
-                return e(DrumPad, {clipId: padBank[i].id, clip: padBank[i].url, keyTrigger: padBank[i].keyTrigger, keyCode: padBank[i].keyCode });
+                return e(DrumPad, {clipId: padBankArr[i].id, clip: padBankArr[i].url, keyTrigger: padBankArr[i].keyTrigger, keyCode: padBankArr[i].keyCode });
             }) :
             padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
-                return e(DrumPad, {clipId: padBank[i].id, clip: '#', keyTrigger: padBank[i].keyTrigger, keyCode: padBank[i].keyCode });
+                return e(DrumPad, {clipId: padBankArr[i].id, clip: '#', keyTrigger: padBankArr[i].keyTrigger, keyCode: padBankArr[i].keyCode });
             })
 
-        return e('div', { id:'pad-blank' }, padBank);
+        return e('div', { className:'pad-blank' }, padBank);
     }
 }
 
@@ -132,6 +132,7 @@ class App extends React.Component
     {
         super(props);
         this.state = {
+            power: true,
             currentPadBank: bankOne
         };
         
@@ -139,7 +140,9 @@ class App extends React.Component
 
     render()
     {
-        return [e(Header), e(DrumMachine), e(Footer)];
+        return [e(Header), 
+                e(PadBlank, {power: this.state.power, currentPadBank: this.state.currentPadBank}), 
+                e(Footer)];
     }
 }
 
