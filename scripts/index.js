@@ -75,6 +75,7 @@ class DrumPad extends React.Component
         };
 
         this.activatePad = this.activatePad.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     activatePad()
@@ -93,6 +94,22 @@ class DrumPad extends React.Component
                                     backgroundColor: '#2c3e50',
                                     boxShadow: '0 3px #2c3e50' } });
         }
+    }
+
+    componentDidMount()
+    {
+        document.addEventListener('keydown', this.handleKeyPress);
+    }
+
+    componentWillUnmount()
+    {
+        document.removeEventListener('keydown', this.handleKeyPress);
+    }
+
+    handleKeyPress(key)
+    {
+        if (key.keyCode === this.prps.keyCode)
+            alert(key);
     }
 
     render() {
