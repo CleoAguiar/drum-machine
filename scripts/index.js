@@ -75,6 +75,8 @@ class DrumPad extends React.Component
         };
 
         this.activatePad = this.activatePad.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.playSound = this.playSound.bind(this);
     }
 
     activatePad()
@@ -95,8 +97,34 @@ class DrumPad extends React.Component
         }
     }
 
+    componentDidMount()
+    {
+        document.addEventListener('keydown', this.handleKeyPress);
+    }
+
+    componentWillUnmount()
+    {
+        document.removeEventListener('keydown', this.handleKeyPress);
+    }
+
+    handleKeyPress(key)
+    {
+        if (key.keyCode === this.prps.keyCode)
+            this.playSound();
+    }
+
+    playSound(s)
+    {
+        const sound = document.getElementById(this.props.keyTrigger);
+        sound.currentTime = 0;
+        sound.play();
+        this.activatePad();
+        setTimeout(() => this.activatePad(), 100);
+        this.props.updateDisplay(this.props.clipId.replace(/-/g, ' '));
+    }
+
     render() {
-        return [e('div', { id: this.props.clipId, onClick: 'improve', className: 'drum-pad', style: this.state.padStyle }, 
+        return [e('div', { id: this.props.clipId, onClick: this.playSound, className: 'drum-pad', style: this.state.padStyle }, 
                     [e('audio', { class: 'clip', id: this.props.keyTrigger , src: this.props.clip } ), this.props.keyTrigger]
                 )];
     }
