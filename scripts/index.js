@@ -186,14 +186,14 @@ class App extends React.Component
 }
 
 const Header = () => {
-    return e('div', { id: 'header' },
+    return e('div', { class: 'header' },
             [e('h2',null, 'Welcome to my React Drum Machine!'),
             e('p', null, 'This page is my Third Front End Project FreeCodeCamp using React')]
             );
 };
 
 const Footer = () => {
-    return e('div', { id: 'footer' }, 
+    return e('div', { class: 'footer' }, 
         [ String.fromCharCode(169), // copyright symbol &#169;
           ' 2019 ' ,
           e('a', {href: 'http://cleoaguiar.github.io'}, 'Cleo Aguiar'), 
