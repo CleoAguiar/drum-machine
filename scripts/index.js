@@ -82,8 +82,8 @@ class DrumPad extends React.Component
     activatePad()
     {
         if (this.props.power){
-            this.state.padStyle.backgroundColor === 'orange' ?
-                this.setState({ padStyle: inactiveStyle }) :
+            this.state.padStyle.backgroundColor === 'orange' ? 
+                this.setState({ padStyle: inactiveStyle }) : 
                 this.setState({ padStyle: activeStyle });
         }
         else {
@@ -109,7 +109,7 @@ class DrumPad extends React.Component
 
     handleKeyPress(key)
     {
-        if (key.keyCode === this.prps.keyCode)
+        if (key.keyCode === this.props.keyCode)
             this.playSound();
     }
 
@@ -143,10 +143,10 @@ class PadBlank extends React.Component
         let padBank;
         this.props.power ?
             padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
-                return e(DrumPad, {clipId: padBankArr[i].id, clip: padBankArr[i].url, keyTrigger: padBankArr[i].keyTrigger, keyCode: padBankArr[i].keyCode });
+                return e(DrumPad, {clipId: padBankArr[i].id, clip: padBankArr[i].url, keyTrigger: padBankArr[i].keyTrigger, keyCode: padBankArr[i].keyCode, updateDisplay: this.props.updateDisplay, power: this.props.power });
             }) :
             padBank = this.props.currentPadBank.map((drumObj, i, padBankArr) => {
-                return e(DrumPad, {clipId: padBankArr[i].id, clip: '#', keyTrigger: padBankArr[i].keyTrigger, keyCode: padBankArr[i].keyCode });
+                return e(DrumPad, {clipId: padBankArr[i].id, clip: '#', keyTrigger: padBankArr[i].keyTrigger, keyCode: padBankArr[i].keyCode, updateDisplay: this.props.updateDisplay, power: this.props.power });
             })
 
         return e('div', { className:'pad-blank' }, padBank);
@@ -161,15 +161,26 @@ class App extends React.Component
         super(props);
         this.state = {
             power: true,
+            display: String.fromCharCode(160),
             currentPadBank: bankOne
         };
+
+        this.displayClipName = this.displayClipName.bind(this);
         
+    }
+
+    displayClipName(name)
+    {
+        if (this.state.power)
+        {
+            this.setState({ display: name });
+        }
     }
 
     render()
     {
         return [e(Header), 
-                e(PadBlank, {power: this.state.power, currentPadBank: this.state.currentPadBank}), 
+                e(PadBlank, {power: this.state.power, updateDisplay: this.displayClipName, currentPadBank: this.state.currentPadBank}), 
                 e(Footer)];
     }
 }
